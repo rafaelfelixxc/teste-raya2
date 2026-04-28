@@ -248,6 +248,22 @@
 
     <!-- ===== RAYA SECTION ===== -->
     <section id="raya" class="section">
+      <!-- Raya lock screen -->
+      <div id="rayaLock" class="locked-box glass">
+        <div class="icon">✦</div>
+        <h2>Raya · Leitura de Documentos</h2>
+        <p class="muted">Digite a senha para acessar a IA de leitura de apólices.</p>
+        <div class="form-grid">
+          <div>
+            <label>Senha</label>
+            <input type="password" id="senhaRaya" placeholder="Digite a senha" onkeydown="if(event.key==='Enter') desbloquearRaya()" />
+          </div>
+          <button class="primary-btn" onclick="desbloquearRaya()">Entrar</button>
+        </div>
+      </div>
+
+      <div id="rayaContent" class="hidden">
+
       <div class="raya-layout">
 
         <!-- Coluna esquerda: controles -->
@@ -399,6 +415,7 @@
 
       </div>
     </section>
+      </div><!-- end rayaContent -->
     <!-- ===== FIM RAYA ===== -->
 
     <section id="controle" class="section">
@@ -548,6 +565,7 @@
 
   <script>
     const SENHA_OPERACAO = 'Operações321';
+    const SENHA_RAYA = 'Operações321';
     const hoje = new Date().toISOString().split('T')[0];
     let arquivosSelecionados = [];
     let modoTabela = false;
@@ -1699,6 +1717,18 @@ Se um campo não for encontrado, coloque null. A confiança é de 0 a 100 — se
       }
       mostrarToast('Documento ' + apolice + ' selecionado para análise Raya');
     }
+    function desbloquearRaya() {
+      const campo = document.getElementById('senhaRaya');
+      if (!campo || campo.value !== SENHA_RAYA) {
+        mostrarToast('Senha incorreta');
+        return;
+      }
+      document.getElementById('rayaLock').classList.add('hidden');
+      document.getElementById('rayaContent').classList.remove('hidden');
+      campo.value = '';
+      mostrarToast('Acesso Raya liberado');
+    }
+
   </script>
 </body>
 </html>
