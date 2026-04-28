@@ -1353,7 +1353,7 @@
       for (const versao of versoesApi) {
         for (const modelo of modelos) {
           setRayaProgress(68, 'Consultando Gemini: ' + modelo + '...');
-          const url = "https://SEU-WORKER.cloudflareworkers.com/analisar/' + versao + '/models/' + modelo + ':generateContent?key=' + encodeURIComponent(apiKey);
+          const url = "https://raya2.rafaelxcrafa.workers.dev/analisar/' + versao + '/models/' + modelo + ':generateContent?key=' + encodeURIComponent(apiKey);
           try {
             const response = await fetch(url, {
               method: 'POST',
