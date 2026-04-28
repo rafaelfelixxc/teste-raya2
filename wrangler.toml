@@ -1,0 +1,7 @@
+name = "central-garantias-raya"
+main = "cloudflare/worker.js"
+compatibility_date = "2026-04-28"
+
+[vars]
+# Não coloque a chave Gemini aqui.
+# Use: npx wrangler secret put GEMINI_API_KEY
