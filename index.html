@@ -58,20 +58,32 @@
     .summary-card strong { font-size: 28px; }
     .summary-card small { display:block; color:#a9bad9; margin-top: 6px; }
     .kanban { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-    .lane { padding: 16px; min-height: 380px; border-radius: 24px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); }
+    .lane { padding: 16px; height: 520px; border-radius: 24px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); display: flex; flex-direction: column; }
+    .lane-cards { flex: 1; overflow-y: auto; overflow-x: hidden; padding-right: 4px; min-width: 0; }
+    .lane-cards::-webkit-scrollbar { width: 4px; }
+    .lane-cards::-webkit-scrollbar-track { background: transparent; }
+    .lane-cards::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 99px; }
     .lane-title { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; gap: 8px; }
     .lane-title h3 { font-size: 16px; }
     .badge { padding: 6px 10px; border-radius: 99px; background: rgba(255,255,255,0.09); color: #dce7ff; font-size: 12px; font-weight: 800; }
-    .doc-card { background: rgba(4,10,25,0.72); border: 1px solid rgba(255,255,255,0.1); border-radius: 18px; padding: 15px; margin-bottom: 12px; }
-    .doc-card h4 { font-size: 15px; margin-bottom: 10px; }
-    .doc-card p { color: #9fb4d8; font-size: 12.5px; line-height: 1.6; }
-    .doc-card .money { color: #fff; font-weight: 900; margin-top: 10px; font-size: 15px; }
-    .status-pill { display: inline-flex; padding: 5px 9px; border-radius: 99px; background: rgba(0,87,255,0.18); color: #b9d2ff; font-size: 11px; margin-top: 10px; }
+    .doc-card { background: rgba(4,10,25,0.72); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 10px 12px; margin-bottom: 8px; height: 175px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; width: 100%; box-sizing: border-box; min-width: 0; }
+    .doc-card-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 6px; margin-bottom: 4px; }
+    .doc-card h4 { font-size: 13px; font-weight: 800; margin: 0; line-height: 1.3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+    .doc-card .card-meta { color: #9fb4d8; font-size: 11px; line-height: 1.5; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .doc-card .card-meta strong { color: #c8d9f5; }
+    .doc-card .tomador-meta { color: #9fb4d8; font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+    .doc-card .money-row { display: flex; gap: 10px; align-items: center; flex-wrap: nowrap; }
+    .doc-card .money { color: #fff; font-weight: 900; font-size: 13px; white-space: nowrap; }
+    .doc-card .premio-val { color: #b9d2ff; font-size: 12px; font-weight: 700; white-space: nowrap; }
+    .status-pill { display: inline-flex; padding: 3px 7px; border-radius: 99px; background: rgba(0,87,255,0.18); color: #b9d2ff; font-size: 10px; margin-top: 4px; }
     .status-pill.done { background: rgba(65, 220, 142, 0.16); color: #bdf9d6; }
-    .card-actions { margin-top: 12px; display: grid; gap: 8px; }
-    .download-btn, .done-btn { border: none; border-radius: 12px; padding: 9px 11px; cursor: pointer; font-size: 12px; font-weight: 800; border: 1px solid rgba(60,150,255,0.28); }
-    .download-btn { background: rgba(0,87,255,0.2); color: #d9e7ff; }
-    .done-btn { background: rgba(65, 220, 142, 0.14); color: #c8ffe0; border-color: rgba(65, 220, 142, 0.28); }
+    .card-actions { margin-top: 7px; display: flex; gap: 6px; align-items: center; justify-content: flex-end; flex-wrap: wrap; }
+    .done-btn { border: none; border-radius: 8px; padding: 5px 9px; cursor: pointer; font-size: 10px; font-weight: 800; background: rgba(65, 220, 142, 0.14); color: #c8ffe0; border: 1px solid rgba(65, 220, 142, 0.28); }
+    .raya-icon-btn { border: none; border-radius: 8px; width: 26px; height: 26px; cursor: pointer; font-size: 14px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, rgba(255,140,0,0.25), rgba(140,0,255,0.25)); border: 1px solid rgba(180,80,255,0.35); padding: 0; }
+    .finalizar-box { margin-top: 5px; }
+    .finalizar-box label { font-size: 10px; color: #9fb4d8; margin-bottom: 3px; display:block; }
+    .finalizar-box select { padding: 4px 7px; font-size: 10px; border-radius: 8px; width: auto; }
+    .download-btn { border: none; border-radius: 12px; padding: 9px 11px; cursor: pointer; font-size: 12px; font-weight: 800; border: 1px solid rgba(60,150,255,0.28); background: rgba(0,87,255,0.2); color: #d9e7ff; }
 
     .dashboard-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 20px; }
     .chart-card { padding: 20px; border-radius: 24px; background: rgba(255,255,255,0.055); border: 1px solid rgba(255,255,255,0.1); min-height: 330px; }
@@ -103,11 +115,47 @@
     @media (max-width: 620px) { body { padding: 14px; } .filters { grid-template-columns: 1fr; } .tabs { width: 100%; } .tab-btn { flex: 1; padding: 11px 10px; } th, td { font-size: 11.5px; padding: 10px 8px; } }
 
     /* ========= RAYA ========= */
-    .raya-layout { display: grid; grid-template-columns: 340px 1fr; gap: 22px; }
-    @media (max-width: 960px) { .raya-layout { grid-template-columns: 1fr; } }
+    /* 3-column layout: left=fields, center=PDF viewer, right=AI status */
+    .raya-layout { display: grid; grid-template-columns: 360px 1fr; grid-template-rows: auto; gap: 18px; }
+    .raya-right-col { display: flex; flex-direction: column; gap: 18px; min-height: 0; }
+    .raya-left-col { display: flex; flex-direction: column; gap: 18px; }
+    @media (max-width: 1100px) { .raya-layout { grid-template-columns: 1fr; } .raya-right-col { grid-template-rows: 480px auto; } }
 
     .raya-panel { padding: 26px; }
-    .raya-center { display: flex; flex-direction: column; align-items: center; padding: 28px 20px; }
+    .raya-center { display: flex; flex-direction: column; align-items: center; padding: 24px 20px; overflow-y: auto; max-height: calc(100vh - 130px); }
+
+    /* PDF viewer pane */
+    .raya-pdf-pane { position: relative; border-radius: 26px; overflow: hidden; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.13); backdrop-filter: blur(18px); display: flex; flex-direction: column; min-height: 480px; }
+    .raya-pdf-toolbar { display: flex; align-items: center; gap: 10px; padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,0.09); background: rgba(255,255,255,0.04); flex-shrink: 0; flex-wrap: wrap; }
+    .raya-pdf-toolbar span { font-size: 12px; color: #9fb4d8; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .raya-pdf-toolbar button { border: none; padding: 6px 12px; border-radius: 10px; font-size: 12px; font-weight: 700; cursor: pointer; background: rgba(255,255,255,0.08); color: #d0e2ff; border: 1px solid rgba(255,255,255,0.12); transition: 0.2s; }
+    .raya-pdf-toolbar button:hover { background: rgba(255,255,255,0.15); }
+    .raya-pdf-embed { flex: 1; width: 100%; border: none; display: block; background: #fff; }
+    .raya-pdf-canvas-wrap { flex: 1; overflow: auto; display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 10px; background: #1a1f2e; }
+    .raya-pdf-canvas-wrap canvas { max-width: 100%; box-shadow: 0 4px 24px rgba(0,0,0,0.5); border-radius: 4px; }
+    .pdf-text-layer { color: transparent; user-select: text; cursor: text; }
+    .pdf-text-layer span { position: absolute; white-space: pre; cursor: text; transform-origin: 0% 0%; color: transparent; }
+    .raya-pdf-empty { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #4a5a7a; gap: 14px; padding: 40px; }
+    .raya-pdf-empty svg { opacity: 0.25; }
+    .raya-pdf-zoom { display: flex; align-items: center; gap: 8px; }
+    .zoom-btn { width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 800; }
+    #zoomLevel { font-size: 12px; color: #9fb4d8; min-width: 36px; text-align: center; }
+
+    /* AI status pane (bottom right) */
+    .raya-ai-pane { border-radius: 26px; background: rgba(255,255,255,0.055); border: 1px solid rgba(255,255,255,0.13); backdrop-filter: blur(18px); padding: 20px 22px; display: flex; flex-direction: column; gap: 12px; overflow-y: auto; }
+    .raya-ai-pane h3 { font-size: 15px; font-weight: 800; color: #c8b8ee; display: flex; align-items: center; gap: 8px; }
+    .raya-ai-header { display: flex; justify-content: space-between; align-items: center; }
+    .raya-ai-status-row { display: flex; align-items: center; gap: 10px; }
+    .raya-ai-dot { width: 8px; height: 8px; border-radius: 50%; background: #4a5a7a; flex-shrink: 0; }
+    .raya-ai-dot.processing { background: #ff9040; animation: aiPulse 1s infinite; }
+    .raya-ai-dot.done { background: #41dc8e; }
+    .raya-ai-dot.error { background: #ff5b5b; }
+    @keyframes aiPulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+    .raya-ai-log { font-size: 12px; color: #7a8fb8; line-height: 1.6; }
+    .raya-ai-obs { font-size: 12px; background: rgba(155,79,255,0.08); border: 1px solid rgba(155,79,255,0.18); border-radius: 12px; padding: 10px 12px; color: #c8b8ee; line-height: 1.5; }
+
+    /* Left fields pane */
+    .raya-fields-pane { overflow-y: auto; max-height: calc(100vh - 130px); }
 
     /* Gem animada */
     .raya-gem-wrap { position: relative; width: 120px; height: 120px; margin: 0 auto 18px; }
@@ -189,6 +237,71 @@
 
     .raya-empty { text-align: center; padding: 40px 20px; color: #6a7a9a; }
     .raya-empty .gem-idle { opacity: 0.35; margin-bottom: 14px; }
+  
+    /* ===== RAYA LAYOUT AJUSTADO ===== */
+    .raya-layout {
+      display: grid !important;
+      grid-template-columns: 420px minmax(0, 1fr) !important;
+      gap: 18px !important;
+      align-items: start;
+    }
+    .raya-left-col {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      min-width: 0;
+    }
+    .raya-right-col {
+      display: grid !important;
+      grid-template-rows: minmax(520px, calc(100vh - 430px)) auto !important;
+      gap: 18px !important;
+      min-width: 0;
+    }
+    .raya-fields-pane {
+      max-height: none !important;
+      overflow-y: visible !important;
+    }
+    .raya-control-pane {
+      max-height: none !important;
+      overflow-y: visible !important;
+    }
+    .raya-fields-box {
+      padding: 22px;
+      width: 100%;
+    }
+    .raya-fields-box h3 {
+      font-size: 18px;
+      margin-bottom: 6px;
+      color: #fff;
+    }
+    .raya-fields-box .muted {
+      margin-bottom: 14px;
+    }
+    .raya-fields-grid {
+      grid-template-columns: 1fr !important;
+    }
+    .raya-export-excel-btn {
+      background: linear-gradient(135deg, #41dc8e, #00a3ff);
+      border: none;
+      border-radius: 15px;
+      padding: 14px;
+      color: #fff;
+      font-weight: 900;
+      font-size: 14px;
+      cursor: pointer;
+      width: 100%;
+      transition: 0.22s;
+      margin-top: 10px;
+    }
+    .raya-export-excel-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(65,220,142,0.3);
+    }
+    @media (max-width: 1100px) {
+      .raya-layout { grid-template-columns: 1fr !important; }
+      .raya-right-col { grid-template-rows: 480px auto !important; }
+    }
+
   </style>
 </head>
 <body>
@@ -248,26 +361,24 @@
 
     <!-- ===== RAYA SECTION ===== -->
     <section id="raya" class="section">
+
       <!-- Raya lock screen -->
       <div id="rayaLock" class="locked-box glass">
         <div class="icon">✦</div>
         <h2>Raya · Leitura de Documentos</h2>
         <p class="muted">Digite a senha para acessar a IA de leitura de apólices.</p>
         <div class="form-grid">
-          <div>
-            <label>Senha</label>
-            <input type="password" id="senhaRaya" placeholder="Digite a senha" onkeydown="if(event.key==='Enter') desbloquearRaya()" />
-          </div>
+          <div><label>Senha</label><input type="password" id="senhaRaya" placeholder="Digite a senha" onkeydown="if(event.key==='Enter') desbloquearRaya()" /></div>
           <button class="primary-btn" onclick="desbloquearRaya()">Entrar</button>
         </div>
       </div>
 
       <div id="rayaContent" class="hidden">
-
       <div class="raya-layout">
 
-        <!-- Coluna esquerda: controles -->
-        <div class="glass raya-center">
+        <!-- Coluna esquerda: controles + informações extraídas -->
+        <div class="raya-left-col">
+        <div class="glass raya-center raya-control-pane">
 
           <!-- Gem animada -->
           <div class="raya-gem-wrap idle" id="rayaGemWrap">
@@ -283,13 +394,9 @@
                 </linearGradient>
                 <filter id="glow"><feGaussianBlur stdDeviation="3" result="blur"/><feComposite in="SourceGraphic" in2="blur" operator="over"/></filter>
               </defs>
-              <!-- Outer gem -->
               <polygon points="60,4 116,60 60,116 4,60" fill="url(#gMain)" opacity="0.92" filter="url(#glow)"/>
-              <!-- Middle face -->
               <polygon points="60,18 102,60 60,102 18,60" fill="none" stroke="url(#gInner)" stroke-width="1.2" opacity="0.75"/>
-              <!-- Inner core -->
               <polygon points="60,36 84,60 60,84 36,60" fill="rgba(255,255,255,0.18)" stroke="rgba(255,255,255,0.5)" stroke-width="0.8"/>
-              <!-- Reflection lines -->
               <line x1="60" y1="4" x2="60" y2="116" stroke="rgba(255,255,255,0.07)" stroke-width="0.8"/>
               <line x1="4" y1="60" x2="116" y2="60" stroke="rgba(255,255,255,0.07)" stroke-width="0.8"/>
               <line x1="20" y1="20" x2="100" y2="100" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/>
@@ -307,17 +414,17 @@
             <input type="file" id="rayaFileInput" accept=".pdf,.png,.jpg,.jpeg" hidden />
           </div>
           <div class="raya-file-chosen" id="rayaFileChosen"></div>
-
-          <!-- Worker Cloudflare -->
+          <!-- Worker Cloudflare configurado internamente -->
           <div class="raya-key-row">
-            <input type="text" id="rayaWorkerUrl" placeholder="Cole a URL do Worker Cloudflare (ex: https://seu-worker.workers.dev)" autocomplete="off" />
+            <input type="text" id="rayaWorkerUrl" value="https://raya2.rafaelxcrafa.workers.dev" readonly />
           </div>
           <div style="font-size:11px;color:#5a6a8a;margin-top:5px;text-align:left;width:100%;line-height:1.45;">
-            A Raya envia o texto/imagem para <strong>/api/gemini</strong> no seu Worker. A chave do Gemini fica protegida no Cloudflare, não no HTML.
+            Worker conectado internamente: <strong>raya2.rafaelxcrafa.workers.dev</strong>. Não precisa colar API Key.
           </div>
           <button class="raya-btn secondary" id="rayaTestWorkerBtn" onclick="testarWorkerRaya()" style="margin-top:10px;">
             Testar conexão com Worker
           </button>
+
 
           <!-- Config de template -->
           <button class="raya-config-toggle" onclick="document.getElementById('rayaConfig').classList.toggle('open')">⚙ Configurar tipo de documento / mapeamento</button>
@@ -343,79 +450,100 @@
             Limpar e analisar outro
           </button>
 
-          <!-- Barra de progresso -->
-          <div class="raya-progress" id="rayaProgress">
-            <div class="raya-progress-bar"><div class="raya-progress-fill" id="rayaProgressFill"></div></div>
-            <div class="raya-progress-label" id="rayaProgressLabel">Preparando...</div>
-          </div>
-
-          <!-- Histórico de testes -->
-          <div class="raya-test-history" id="rayaTestHistory" style="width:100%;margin-top:20px;display:none;">
-            <h3>📊 Histórico de acerto</h3>
-            <div id="rayaTestRows"></div>
-          </div>
+          
+        <!-- Separador para campos extraídos -->
         </div>
 
-        <!-- Coluna direita: resultado -->
-        <div class="glass raya-panel raya-result" id="rayaResultPanel">
-          <!-- Estado vazio inicial -->
-          <div class="raya-empty" id="rayaEmptyState">
-            <div class="gem-idle">
-              <svg viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg">
-                <polygon points="32,4 60,32 32,60 4,32" fill="rgba(155,79,255,0.2)" stroke="rgba(155,79,255,0.35)" stroke-width="1.5"/>
-                <polygon points="32,16 48,32 32,48 16,32" fill="none" stroke="rgba(155,79,255,0.2)" stroke-width="1"/>
-              </svg>
-            </div>
-            <p style="font-size:15px;font-weight:700;color:#4a5a7a;margin-bottom:8px;">Nenhuma análise ainda</p>
-            <p style="font-size:13px;color:#3a4a6a;line-height:1.6;">Envie um documento e clique em <strong style="color:#9b4fff;">Analisar com Raya</strong>.<br>Os campos extraídos aparecerão aqui para revisão.</p>
-          </div>
-
-          <!-- Resultado preenchido (hidden até ter dados) -->
-          <div id="rayaResultContent" style="display:none;">
-            <div class="raya-result-header">
-              <div>
-                <h2>Análise concluída ✦</h2>
-                <p class="muted" id="rayaResultMeta">Pronto para importar</p>
-              </div>
-              <div class="raya-accuracy">
-                <div>
-                  <div style="font-size:11px;color:#9fb4d8;text-align:right;">Acerto Raya</div>
-                  <div class="accuracy-ring">
-                    <svg width="64" height="64" viewBox="0 0 64 64">
-                      <circle cx="32" cy="32" r="26" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="6"/>
-                      <circle cx="32" cy="32" r="26" fill="none" stroke="url(#gAcc)" stroke-width="6"
-                        stroke-dasharray="163.36" stroke-dashoffset="163.36" stroke-linecap="round"
-                        id="accuracyCircle" style="transition:stroke-dashoffset 1s ease;"/>
-                      <defs>
-                        <linearGradient id="gAcc" x1="0%" y1="0%" x2="100%" y2="0%">
-                          <stop offset="0%" stop-color="#FF6B00"/>
-                          <stop offset="100%" stop-color="#9B4FFF"/>
-                        </linearGradient>
-                      </defs>
-                    </svg>
-                    <div class="accuracy-num" id="accuracyNum">0%</div>
-                  </div>
+        <!-- AI Status — agora na coluna esquerda abaixo dos controles -->
+        <div class="raya-ai-pane glass" id="rayaAiPane" style="margin-top:0;">
+            <div class="raya-ai-header">
+              <h3>
+                <span id="aiDot" class="raya-ai-dot"></span>
+                Central da IA · Status
+              </h3>
+              <div class="raya-accuracy" id="aiAccuracyWrap" style="display:none;">
+                <div style="font-size:11px;color:#9fb4d8;text-align:right;">Acerto Raya</div>
+                <div class="accuracy-ring">
+                  <svg width="64" height="64" viewBox="0 0 64 64">
+                    <circle cx="32" cy="32" r="26" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="6"/>
+                    <circle cx="32" cy="32" r="26" fill="none" stroke="url(#gAcc)" stroke-width="6"
+                      stroke-dasharray="163.36" stroke-dashoffset="163.36" stroke-linecap="round"
+                      id="accuracyCircle" style="transition:stroke-dashoffset 1s ease;"/>
+                    <defs>
+                      <linearGradient id="gAcc" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#FF6B00"/>
+                        <stop offset="100%" stop-color="#9B4FFF"/>
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                  <div class="accuracy-num" id="accuracyNum">0%</div>
                 </div>
               </div>
             </div>
+            <div class="raya-ai-status-row">
+              <div class="raya-ai-log" id="rayaAiLog">Aguardando documento...</div>
+            </div>
+            <div class="raya-ai-obs" id="rayaAiObs" style="display:none;"></div>
+            <div class="raya-progress" id="rayaProgress" style="display:none;">
+              <div class="raya-progress-bar"><div class="raya-progress-fill" id="rayaProgressFill"></div></div>
+              <div class="raya-progress-label" id="rayaProgressLabel">Preparando...</div>
+            </div>
+            <div class="raya-test-history" id="rayaTestHistory" style="display:none;">
+              <h3 style="font-size:13px;color:#c8b8ee;margin-bottom:8px;">📊 Histórico de acerto</h3>
+              <div id="rayaTestRows"></div>
+            </div>
+          </div>
 
-            <!-- Campos extraídos -->
-            <div class="raya-fields-grid" id="rayaFieldsGrid"></div>
+        </div><!-- end raya-left-col -->
 
-            <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:4px;">
-              <button class="raya-confirm-btn" id="rayaImportBtn" onclick="importarParaFila()">
-                ✓ Confirmar e importar para a fila
+        <!-- Coluna direita: PDF viewer (topo) + Informações extraídas (baixo) -->
+        <div class="raya-right-col">
+
+          <!-- PDF Viewer -->
+          <div class="raya-pdf-pane">
+            <div class="raya-pdf-toolbar">
+              <span id="pdfViewerName">Nenhum documento carregado</span>
+              <div class="raya-pdf-zoom">
+                <button class="zoom-btn" onclick="ajustarZoom(-0.25)">−</button>
+                <span id="zoomLevel">100%</span>
+                <button class="zoom-btn" onclick="ajustarZoom(0.25)">+</button>
+              </div>
+              <button onclick="baixarPdfAtual()">⬇ Baixar</button>
+              <button onclick="copiarTextoPdf()">📋 Copiar texto</button>
+            </div>
+            <div class="raya-pdf-canvas-wrap" id="pdfCanvasWrap">
+              <div class="raya-pdf-empty" id="pdfEmptyMsg">
+                <svg viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg">
+                  <polygon points="32,4 60,32 32,60 4,32" fill="rgba(155,79,255,0.2)" stroke="rgba(155,79,255,0.35)" stroke-width="1.5"/>
+                </svg>
+                <p style="font-size:14px;font-weight:700;">PDF aparece aqui</p>
+                <p style="font-size:12px;color:#3a4a6a;">Envie um documento para visualizá-lo</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Informações extraídas — agora na coluna direita abaixo do PDF -->
+          <div id="rayaFieldsSection" class="glass raya-fields-box" style="display:none;">
+            <h3>Informações extraídas pela IA</h3>
+            <p class="muted">Revise os campos abaixo. Todas essas informações serão exportadas para Excel.</p>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;width:100%;">
+              <span style="font-size:11px;color:#7a8fb8;" id="rayaResultMeta"></span>
+            </div>
+            <div id="rayaFieldsGrid" class="raya-fields-grid"></div>
+            <div style="display:flex;flex-direction:column;gap:10px;margin-top:14px;width:100%;">
+              <button class="raya-export-excel-btn" id="rayaExcelBtn" onclick="exportarExcelRaya()">
+                ⬇ Exportar informações em Excel
               </button>
-              <button class="ghost-btn" onclick="iniciarAnaliseRaya()" style="margin-top:0;padding:14px 18px;">
+              <button class="ghost-btn" onclick="iniciarAnaliseRaya()" style="padding:12px 18px;">
                 ↺ Reanalisar
               </button>
             </div>
           </div>
-        </div>
 
-      </div>
-    </section>
+        </div><!-- end raya-right-col -->
+      </div><!-- end raya-layout -->
       </div><!-- end rayaContent -->
+    </section>
     <!-- ===== FIM RAYA ===== -->
 
     <section id="controle" class="section">
@@ -458,10 +586,10 @@
         </div>
 
         <div id="kanbanView" class="kanban">
-          <div class="lane"><div class="lane-title"><h3>🔴 Alta prioridade</h3><span class="badge" id="altaCount">0 docs</span></div><div id="altaLane"></div></div>
-          <div class="lane"><div class="lane-title"><h3>🟡 Média prioridade</h3><span class="badge" id="mediaCount">0 docs</span></div><div id="mediaLane"></div></div>
-          <div class="lane"><div class="lane-title"><h3>⚪ Baixa prioridade</h3><span class="badge" id="baixaCount">0 docs</span></div><div id="baixaLane"></div></div>
-          <div class="lane"><div class="lane-title"><h3>✅ Concluídos</h3><span class="badge" id="concluidoCount">0 docs</span></div><div id="concluidoLane"></div></div>
+          <div class="lane"><div class="lane-title"><h3>🔴 Alta prioridade</h3><span class="badge" id="altaCount">0 docs</span></div><div class="lane-cards" id="altaLane"></div></div>
+          <div class="lane"><div class="lane-title"><h3>🟡 Média prioridade</h3><span class="badge" id="mediaCount">0 docs</span></div><div class="lane-cards" id="mediaLane"></div></div>
+          <div class="lane"><div class="lane-title"><h3>⚪ Baixa prioridade</h3><span class="badge" id="baixaCount">0 docs</span></div><div class="lane-cards" id="baixaLane"></div></div>
+          <div class="lane"><div class="lane-title"><h3>✅ Concluídos</h3><span class="badge" id="concluidoCount">0 docs</span></div><div class="lane-cards" id="concluidoLane"></div></div>
         </div>
 
         <div id="tableView" class="hidden">
@@ -606,7 +734,6 @@
 
     document.getElementById('dataEnvio').value = hoje;
     document.getElementById('filtroData').value = hoje;
-    carregarWorkerUrlSalvo();
 
     function criarDocManual(data, cliente, apolice, seguradora, tomador, premio) {
       const responsavel = buscarResponsavelPorTomador(tomador);
@@ -1004,9 +1131,19 @@
         const card = document.createElement('div');
         card.className = 'doc-card';
         const userField = doc.status === 'Concluído'
-          ? '<p>Finalizado por: <strong>' + (doc.usuarioInclusao || 'Não informado') + '</strong></p><p>Finalizado em: ' + (doc.dataConclusao ? formatarDataHoraBR(doc.dataConclusao) : '-') + '</p>'
-          : '<div class="finalizar-box"><label>Usuário de inclusão</label><select id="usuario-' + doc.apolice + '"><option value="Rafael">Rafael</option><option value="Felix">Felix</option></select><button class="done-btn" onclick="moverParaConcluido(\'' + doc.apolice + '\')">Mover para concluído</button></div>';
-        card.innerHTML = '<h4>' + doc.cliente + '</h4><p>Apólice: <strong>' + doc.apolice + '</strong></p><p>Seguradora: ' + doc.seguradora + '</p><p>Tomador: <strong>' + doc.tomador + '</strong></p><p>Executivo: ' + doc.executivo + ' | Técnico: ' + doc.tecnico + '</p><p>Prêmio: ' + money(doc.premio) + '</p><div class="money">Comissão: ' + money(doc.comissao) + '</div><span class="status-pill ' + (doc.status === 'Concluído' ? 'done' : '') + '">' + doc.status + '</span><div class="card-actions"><button class="download-btn" onclick="baixarDocumento(\'' + doc.apolice + '\')">Baixar documento</button>' + (doc.status !== 'Concluído' ? '<button class="download-btn" style="background:rgba(155,79,255,0.18);border-color:rgba(155,79,255,0.35);color:#d0b8ff;" onclick="moverParaRaya(\'' + doc.apolice + '\')">✦ Mover para análise Raya</button>' : '') + '</div>' + userField;
+          ? '<div class="finalizar-box"><label>Finalizado por: <strong>' + (doc.usuarioInclusao || 'Não informado') + '</strong> · ' + (doc.dataConclusao ? formatarDataHoraBR(doc.dataConclusao) : '-') + '</label></div>'
+          : '<div class="finalizar-box"><label>Usuário de inclusão</label><select id="usuario-' + doc.apolice + '" style="font-size:10px;padding:3px 6px;"><option value="Rafael">Rafael</option><option value="Felix">Felix</option></select></div>';
+        const acoes = '<div class="card-actions">'
+          + (doc.status !== 'Concluído' ? '<button class="done-btn" onclick="moverParaConcluido(\'' + doc.apolice + '\')">✓ Concluído</button>' : '')
+          + (doc.status !== 'Concluído' ? '<button class="raya-icon-btn" title="Mover para análise Raya" onclick="moverParaRaya(\'' + doc.apolice + '\')"><svg width="14" height="14" viewBox="0 0 14 14"><polygon points="7,1 13,7 7,13 1,7" fill="url(#rg' + doc.apolice + ')"/><defs><linearGradient id="rg' + doc.apolice + '" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#ff8c00"/><stop offset="100%" stop-color="#9b00ff"/></linearGradient></defs></svg></button>' : '')
+          + '</div>';
+        const tomadorTrunc = (function(t){ const w=t.split(' '); return w.length>4 ? w.slice(0,4).join(' ')+'…' : t; })(doc.tomador||'');
+        const clienteTrunc = (function(t){ const w=t.split(' '); return w.length>4 ? w.slice(0,4).join(' ')+'…' : t; })(doc.cliente||'');
+        card.innerHTML = '<div class="doc-card-header"><h4>' + clienteTrunc + '</h4><span class="status-pill ' + (doc.status === 'Concluído' ? 'done' : '') + '">' + doc.status + '</span></div>'
+          + '<div class="card-meta"><span>Apólice: <strong>' + doc.apolice + '</strong></span> · <span>' + doc.seguradora + '</span></div>'
+          + '<div class="tomador-meta">Tomador: <strong>' + tomadorTrunc + '</strong></div>'
+          + '<div class="money-row"><span class="money">Comissão: ' + money(doc.comissao) + '</span><span class="premio-val">Prêmio: ' + money(doc.premio) + '</span></div>'
+          + userField + acoes;
         lane.appendChild(card);
       });
     }
@@ -1336,7 +1473,66 @@
       const el = document.getElementById('rayaFileChosen');
       el.style.display = 'block';
       el.textContent = '📄 ' + file.name + ' · ' + (file.size / 1024 / 1024).toFixed(2) + ' MB selecionado';
-      setRayaStatus('idle', 'Pronto para analisar', 'Documento selecionado. Insira a URL do Worker e clique em Analisar.');
+      setRayaStatus('idle', 'Pronto para analisar', 'Documento selecionado. Clique em Analisar com Raya.');
+      renderizarPreviewRaya(file);
+    }
+
+    let pdfZoomScale = 1.1;
+    let pdfDocObj = null;
+    let rayaArquivoBuffer = null;
+
+    function ajustarZoom(delta) {
+      pdfZoomScale = Math.min(3.0, Math.max(0.4, pdfZoomScale + delta));
+      document.getElementById('zoomLevel').textContent = Math.round(pdfZoomScale / 1.1 * 100) + '%';
+      if (pdfDocObj) _renderPdfPages(pdfDocObj);
+    }
+
+    async function _renderPdfPages(pdf) {
+      const wrap = document.getElementById('pdfCanvasWrap');
+      wrap.innerHTML = '';
+      for (let i = 1; i <= pdf.numPages; i++) {
+        const page = await pdf.getPage(i);
+        const viewport = page.getViewport({ scale: pdfZoomScale });
+        const pageWrap = document.createElement('div');
+        pageWrap.style.cssText = 'position:relative;display:inline-block;margin-bottom:10px;';
+        const canvas = document.createElement('canvas');
+        canvas.width = viewport.width;
+        canvas.height = viewport.height;
+        canvas.style.cssText = 'display:block;box-shadow:0 4px 24px rgba(0,0,0,0.5);border-radius:4px;';
+        await page.render({ canvasContext: canvas.getContext('2d'), viewport }).promise;
+        // Text layer for copy/paste
+        const textLayerDiv = document.createElement('div');
+        textLayerDiv.style.cssText = 'position:absolute;top:0;left:0;width:' + viewport.width + 'px;height:' + viewport.height + 'px;overflow:hidden;line-height:1;';
+        textLayerDiv.className = 'pdf-text-layer';
+        const textContent = await page.getTextContent();
+        pdfjsLib.renderTextLayer({ textContent, container: textLayerDiv, viewport, textDivs: [] });
+        pageWrap.appendChild(canvas);
+        pageWrap.appendChild(textLayerDiv);
+        wrap.appendChild(pageWrap);
+      }
+    }
+
+    function baixarPdfAtual() {
+      if (!rayaArquivo) { mostrarToast('Nenhum documento carregado'); return; }
+      const url = URL.createObjectURL(rayaArquivo);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = rayaArquivo.name;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    }
+
+    async function copiarTextoPdf() {
+      if (!rayaArquivo) { mostrarToast('Nenhum documento carregado'); return; }
+      try {
+        const texto = await extrairTextoPDF(rayaArquivo);
+        await navigator.clipboard.writeText(texto || '');
+        mostrarToast('Texto copiado');
+      } catch (e) {
+        mostrarToast('Não foi possível copiar o texto');
+      }
     }
 
     function setRayaStatus(estado, texto, sub) {
@@ -1357,88 +1553,120 @@
       fill.style.width = pct + '%';
       lbl.textContent = label;
     }
-
+    const RAYA_WORKER_URL = 'https://raya2.rafaelxcrafa.workers.dev';
 
     function normalizarWorkerUrlRaya(url) {
-      return String(url || '').trim().replace(/\/+$/, '');
+      return String(url || RAYA_WORKER_URL).trim().replace(/\/+$/, '');
     }
 
-    function carregarWorkerUrlSalvo() {
-      const campo = document.getElementById('rayaWorkerUrl');
-      if (!campo) return;
-      const salvo = localStorage.getItem('raya_worker_url') || '';
-      if (salvo && !campo.value) campo.value = salvo;
-      campo.addEventListener('input', () => {
-        localStorage.setItem('raya_worker_url', normalizarWorkerUrlRaya(campo.value));
-      });
+    function getRayaWorkerEndpoint() {
+      return normalizarWorkerUrlRaya(document.getElementById('rayaWorkerUrl')?.value || RAYA_WORKER_URL) + '/api/gemini';
     }
 
     async function testarWorkerRaya() {
-      const campo = document.getElementById('rayaWorkerUrl');
-      const workerUrl = normalizarWorkerUrlRaya(campo.value);
-      if (!workerUrl || !/^https?:\/\//i.test(workerUrl)) {
-        mostrarToast('Cole a URL do Worker Cloudflare');
-        return;
-      }
-      document.getElementById('rayaWorkerUrl').value = workerUrl;
-      localStorage.setItem('raya_worker_url', workerUrl);
-      campo.value = workerUrl;
-      localStorage.setItem('raya_worker_url', workerUrl);
       try {
-        setRayaStatus('processing', 'Testando Worker...', 'Verificando se o Cloudflare está respondendo.');
-        const ping = await fetch(workerUrl + '/', { method: 'GET' });
-        const data = await ping.json().catch(() => ({}));
-        if (!ping.ok || !data.ok) throw new Error(data?.error || 'Worker respondeu, mas não retornou ok:true.');
-        mostrarToast('Worker conectado com sucesso');
+        setRayaStatus('processing', 'Testando Worker...', 'Verificando conexão com o Cloudflare Worker.');
+        const base = normalizarWorkerUrlRaya(document.getElementById('rayaWorkerUrl')?.value || RAYA_WORKER_URL);
+
+        let ok = false;
+        try {
+          const r = await fetch(base + '/', { method: 'GET' });
+          ok = r.ok;
+        } catch (_) {}
+
+        if (!ok) {
+          const r2 = await fetch(base + '/api/gemini', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ parts: [{ text: 'Responda apenas: Worker conectado.' }] })
+          });
+          if (!r2.ok) throw new Error('Worker respondeu HTTP ' + r2.status);
+        }
+
         setRayaStatus('done', 'Worker conectado ✅', 'Agora envie o documento e clique em Analisar com Raya.');
+        mostrarToast('Worker conectado');
       } catch (erro) {
-        mostrarToast('Erro no Worker: ' + (erro.message || 'verifique a URL'));
-        setRayaStatus('error', 'Falha ao testar Worker', erro.message || 'Verifique a URL do Worker.');
+        console.error('Erro no Worker:', erro);
+        setRayaStatus('error', 'Falha no Worker', erro.message || 'Verifique se o Worker está publicado e com CORS liberado.');
+        mostrarToast('Erro no Worker');
       }
     }
 
-    async function chamarGeminiViaWorker(workerUrl, partesGemini) {
-      const urlLimpa = String(workerUrl || '').trim().replace(/\/+$/, '');
-      if (!urlLimpa) throw new Error('Informe a URL do Worker Cloudflare.');
-
-      setRayaProgress(68, 'Consultando Gemini via Cloudflare Worker...');
-
-      const response = await fetch(urlLimpa + '/api/gemini', {
+    async function chamarGeminiViaWorker(partesGemini) {
+      setRayaProgress(68, 'Consultando Gemini via Worker...');
+      const response = await fetch(getRayaWorkerEndpoint(), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ parts: partesGemini })
       });
 
-      const data = await response.json().catch(() => ({}));
-      if (!response.ok) {
-        throw new Error(data?.error || data?.message || ('Erro HTTP ' + response.status + ' no Worker. Confira se a rota /api/gemini está publicada.')); 
-      }
+      const texto = await response.text();
+      let data = {};
+      try { data = JSON.parse(texto); } catch (_) { data = { raw: texto }; }
 
+      if (!response.ok) {
+        throw new Error(data?.error || data?.message || ('Erro HTTP ' + response.status + ' no Worker: ' + texto.slice(0, 140)));
+      }
       return data;
     }
+
+    async function renderizarPreviewRaya(file) {
+      const name = document.getElementById('pdfViewerName');
+      const wrap = document.getElementById('pdfCanvasWrap');
+      if (!name || !wrap || !file) return;
+      name.textContent = file.name;
+      wrap.innerHTML = '';
+      pdfZoomScale = 1.1;
+      document.getElementById('zoomLevel').textContent = '100%';
+      try {
+        const isPDF = file.type.includes('pdf') || file.name.toLowerCase().endsWith('.pdf');
+        if (isPDF && typeof pdfjsLib !== 'undefined') {
+          pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+          const buffer = await file.arrayBuffer();
+          rayaArquivoBuffer = buffer.slice(0);
+          pdfDocObj = await pdfjsLib.getDocument({ data: buffer }).promise;
+          await _renderPdfPages(pdfDocObj);
+        } else {
+          pdfDocObj = null;
+          const img = document.createElement('img');
+          img.style.maxWidth = '100%';
+          img.style.borderRadius = '10px';
+          img.src = URL.createObjectURL(file);
+          wrap.appendChild(img);
+        }
+      } catch (e) {
+        wrap.innerHTML = '<div class="raya-pdf-empty"><p>Preview não disponível, mas a análise pode continuar.</p></div>';
+      }
+    }
+
+    function atualizarLogRaya(texto, obs = '') {
+      const log = document.getElementById('rayaAiLog');
+      const obsEl = document.getElementById('rayaAiObs');
+      if (log) log.textContent = texto;
+      if (obsEl) {
+        obsEl.style.display = obs ? 'block' : 'none';
+        obsEl.textContent = obs || '';
+      }
+    }
+
 
     async function iniciarAnaliseRaya() {
       if (!rayaArquivo) {
         mostrarToast('Selecione um documento primeiro');
         return;
       }
-      const workerUrl = normalizarWorkerUrlRaya(document.getElementById('rayaWorkerUrl').value);
-      if (!workerUrl || !/^https?:\/\//i.test(workerUrl)) {
-        mostrarToast('Cole a URL do Worker Cloudflare');
-        return;
-      }
-      document.getElementById('rayaWorkerUrl').value = workerUrl;
-      localStorage.setItem('raya_worker_url', workerUrl);
 
-      document.getElementById('rayaAnalyzeBtn').disabled = true;
-      document.getElementById('rayaEmptyState').style.display = 'none';
-      document.getElementById('rayaResultContent').style.display = 'none';
+      const analyzeBtn = document.getElementById('rayaAnalyzeBtn');
+      if (analyzeBtn) analyzeBtn.disabled = true;
+
+      const fieldsSection = document.getElementById('rayaFieldsSection');
+      if (fieldsSection) fieldsSection.style.display = 'none';
 
       setRayaStatus('processing', 'Analisando documento...', 'A Raya está lendo o documento e extraindo os campos.');
+      atualizarLogRaya('Iniciando leitura do documento...');
       setRayaProgress(20, 'Lendo documento...');
 
       try {
-        // Extrair texto do PDF ou converter imagem para base64
         let conteudoParaIA = '';
         let base64Image = null;
         let base64MimeType = null;
@@ -1449,23 +1677,27 @@
           const textoPDF = await extrairTextoPDF(rayaArquivo);
           if (textoPDF && textoPDF.trim().length > 80) {
             conteudoParaIA = textoPDF;
+            atualizarLogRaya('Texto nativo do PDF extraído. Enviando para IA...');
           } else {
-            setRayaProgress(45, 'Renderizando imagem do PDF...');
+            setRayaProgress(45, 'Renderizando primeira página do PDF...');
             const imgData = await renderizarPrimeiraPaginaPDF(rayaArquivo);
             base64Image = imgData.split(',')[1];
             base64MimeType = 'image/png';
+            atualizarLogRaya('PDF sem texto nativo. Enviando imagem para IA...');
           }
         } else {
           setRayaProgress(35, 'Preparando imagem...');
           const reader = new FileReader();
-          base64Image = await new Promise(res => {
-            reader.onload = e => res(e.target.result.split(',')[1]);
+          base64Image = await new Promise((resolve, reject) => {
+            reader.onload = e => resolve(e.target.result.split(',')[1]);
+            reader.onerror = reject;
             reader.readAsDataURL(rayaArquivo);
           });
           base64MimeType = rayaArquivo.type || (rayaArquivo.name.toLowerCase().endsWith('.png') ? 'image/png' : 'image/jpeg');
+          atualizarLogRaya('Imagem preparada. Enviando para IA...');
         }
 
-        setRayaProgress(60, 'Preparando consulta ao Gemini...');
+        setRayaProgress(60, 'Preparando consulta ao Worker...');
 
         const docType = document.getElementById('rayaDocType').value;
         const customInstr = document.getElementById('rayaCustomInstructions').value.trim();
@@ -1478,16 +1710,19 @@
           custom: 'Use as instruções personalizadas abaixo para identificar os campos.'
         };
 
-        const instrucaoTipo = tipoInstrucoes[docType] || tipoInstrucoes.pottencial;
-        const instrucaoFinal = instrucaoTipo + (customInstr ? '\n\nInstruções adicionais: ' + customInstr : '');
+        const instrucaoFinal = (tipoInstrucoes[docType] || tipoInstrucoes.pottencial) + (customInstr ? '\n\nInstruções adicionais: ' + customInstr : '');
 
         const promptSistema = `Você é a Raya, uma IA especializada em leitura de apólices de seguro garantia.
 ${instrucaoFinal}
 
 Extraia EXATAMENTE os seguintes campos do documento e retorne APENAS um JSON válido, sem texto antes ou depois:
 {
-  "cliente": "nome do segurado/beneficiário (pessoa física ou jurídica que contrata o seguro)",
-  "tomador": "nome do tomador (empresa que contrata o seguro para garantir obrigações)",
+  "cliente": "nome do segurado/beneficiário",
+  "tomador": "nome do tomador",
+  "cnpj_tomador": "CNPJ do tomador",
+  "cep_tomador": "CEP do tomador",
+  "endereco_tomador": "endereço do tomador",
+  "numero_tomador": "número do endereço do tomador",
   "apolice": "número da apólice",
   "seguradora": "nome da seguradora",
   "premio": número_decimal_sem_formatação,
@@ -1495,24 +1730,31 @@ Extraia EXATAMENTE os seguintes campos do documento e retorne APENAS um JSON vá
   "vigencia_fim": "DD/MM/AAAA",
   "modalidade": "tipo/modalidade do seguro",
   "importancia_segurada": número_decimal_sem_formatação,
+  "objeto_garantia": "objeto/descrição da garantia",
+  "processo_contrato": "número do processo, contrato ou edital quando existir",
   "_confianca": {
     "cliente": 0-100,
     "tomador": 0-100,
+    "cnpj_tomador": 0-100,
+    "cep_tomador": 0-100,
+    "endereco_tomador": 0-100,
+    "numero_tomador": 0-100,
     "apolice": 0-100,
     "seguradora": 0-100,
     "premio": 0-100,
     "vigencia_inicio": 0-100,
     "vigencia_fim": 0-100,
     "modalidade": 0-100,
-    "importancia_segurada": 0-100
+    "importancia_segurada": 0-100,
+    "objeto_garantia": 0-100,
+    "processo_contrato": 0-100
   },
   "_erros": ["lista de campos com problema ou não encontrados"],
   "_observacoes": "comentário sobre o documento ou dificuldades na leitura"
 }
 
-Se um campo não for encontrado, coloque null. A confiança é de 0 a 100 — seja honesto. Retorne APENAS o JSON.`;
+Se um campo não for encontrado, coloque null. Retorne APENAS o JSON.`;
 
-        // Monta a mensagem para a API do Gemini
         const partesGemini = [
           { text: promptSistema + '\n\n' + (base64Image
             ? 'Leia este documento de apólice e extraia os campos conforme instruído.'
@@ -1528,55 +1770,61 @@ Se um campo não for encontrado, coloque null. A confiança é de 0 a 100 — se
           });
         }
 
-        const data = await chamarGeminiViaWorker(workerUrl, partesGemini);
-        const textoResposta = data.candidates?.[0]?.content?.parts?.map(p => p.text || '').join('\n') || '';
+        const data = await chamarGeminiViaWorker(partesGemini);
+        const textoResposta = data.candidates?.[0]?.content?.parts?.map(p => p.text || '').join('\n')
+          || data?.text || data?.response || data?.content || data?.result || data?.raw || '';
 
         setRayaProgress(90, 'Processando resultado...');
 
-        // Parse JSON da resposta do Gemini.
-        // A API não força JSON por configuração nesta versão, então limpamos possíveis blocos ```json.
         let campos;
         try {
           let textoLimpo = String(textoResposta || '')
             .replace(/```json/gi, '')
             .replace(/```/g, '')
             .trim();
+          // tenta pegar o maior bloco JSON da resposta
           const jsonMatch = textoLimpo.match(/\{[\s\S]*\}/);
           campos = JSON.parse(jsonMatch ? jsonMatch[0] : textoLimpo);
         } catch (e) {
-          console.warn('Resposta Gemini sem JSON puro:', textoResposta);
-          throw new Error('A Raya retornou uma resposta inesperada. Tente novamente.');
+          // segunda tentativa: resposta pode estar aninhada em data.text ou data.response
+          try {
+            const fallback = String(data?.text || data?.response || data?.content || data?.result || '');
+            const jsonMatch2 = fallback.replace(/```json/gi,'').replace(/```/g,'').match(/\{[\s\S]*\}/);
+            if (!jsonMatch2) throw new Error('sem JSON');
+            campos = JSON.parse(jsonMatch2[0]);
+          } catch (e2) {
+            console.warn('Resposta da IA sem JSON puro:', textoResposta, data);
+            throw new Error('A Raya retornou uma resposta inesperada. Tente novamente.');
+          }
         }
 
         setRayaProgress(100, 'Análise concluída!');
 
-        // Calcular % de acerto
-        const camposAvaliados = ['cliente','tomador','apolice','seguradora','premio','vigencia_inicio','vigencia_fim','modalidade'];
+        const camposAvaliados = ['cliente','tomador','cnpj_tomador','cep_tomador','endereco_tomador','numero_tomador','apolice','seguradora','premio','vigencia_inicio','vigencia_fim','modalidade','importancia_segurada','objeto_garantia','processo_contrato'];
         const confiancas = campos._confianca || {};
-        const mediaAcerto = Math.round(camposAvaliados.reduce((s, k) => s + (confiancas[k] || 0), 0) / camposAvaliados.length);
+        const mediaAcerto = Math.round(camposAvaliados.reduce((s, k) => s + (Number(confiancas[k]) || 0), 0) / camposAvaliados.length);
 
         rayaUltimoResultado = { campos, mediaAcerto, arquivo: rayaArquivo.name };
 
-        // Salva no histórico
         rayaTestHistory.unshift({ arquivo: rayaArquivo.name, acerto: mediaAcerto, data: new Date().toLocaleTimeString('pt-BR') });
         renderTestHistory();
 
-        // Exibe resultado
         mostrarResultadoRaya(campos, mediaAcerto);
 
         setRayaStatus('done', 'Análise concluída! ✦', campos._observacoes || 'Revise os campos abaixo e importe para a fila.');
+        atualizarLogRaya('Análise concluída com sucesso.', campos._observacoes || '');
         setTimeout(() => setRayaProgress(0, ''), 1000);
 
         document.getElementById('rayaClearBtn').style.display = 'block';
         document.getElementById('rayaAnalyzeBtn').style.display = 'none';
 
       } catch (erro) {
-        console.error('Raya Gemini error:', erro);
-        setRayaStatus('error', 'Erro na análise', erro.message || 'Verifique a URL do Worker, a variável GEMINI_API_KEY e tente novamente.');
+        console.error('Raya Worker error:', erro);
+        setRayaStatus('error', 'Erro na análise', erro.message || 'Verifique o Worker e tente novamente.');
+        atualizarLogRaya('Erro na análise: ' + (erro.message || 'Tente novamente.'));
         setRayaProgress(0, '');
-        document.getElementById('rayaEmptyState').style.display = 'block';
         mostrarToast('Erro Raya: ' + (erro.message || 'Tente novamente'));
-        document.getElementById('rayaAnalyzeBtn').disabled = false;
+        if (analyzeBtn) analyzeBtn.disabled = false;
       }
     }
 
@@ -1591,41 +1839,52 @@ Se um campo não for encontrado, coloque null. A confiança é de 0 a 100 — se
         { key: 'apolice', label: 'Nº Apólice' },
         { key: 'seguradora', label: 'Seguradora' },
         { key: 'premio', label: 'Prêmio Total (R$)', format: v => v != null ? Number(v).toLocaleString('pt-BR', {minimumFractionDigits:2}) : '' },
-        { key: 'importancia_segurada', label: 'Importância Segurada (R$)', format: v => v != null ? Number(v).toLocaleString('pt-BR', {minimumFractionDigits:2}) : '' },
+        { key: 'importancia_segurada', label: 'Importância Segurada / LMI (R$)', format: v => v != null ? Number(v).toLocaleString('pt-BR', {minimumFractionDigits:2}) : '' },
         { key: 'vigencia_inicio', label: 'Vigência Início' },
         { key: 'vigencia_fim', label: 'Vigência Fim' },
-        { key: 'modalidade', label: 'Modalidade' }
+        { key: 'modalidade', label: 'Modalidade' },
+        { key: 'cnpj_tomador', label: 'CNPJ do Tomador' },
+        { key: 'cep_tomador', label: 'CEP do Tomador' },
+        { key: 'endereco_tomador', label: 'Endereço do Tomador' },
+        { key: 'numero_tomador', label: 'Número do Tomador' },
+        { key: 'objeto_garantia', label: 'Objeto da Garantia' },
+        { key: 'processo_contrato', label: 'Processo / Contrato' }
       ];
 
       grid.innerHTML = '';
       camposDef.forEach(def => {
         const val = campos[def.key];
-        const conf = confiancas[def.key] || 0;
-        const temErro = erros.some(e => e.toLowerCase().includes(def.key)) || conf < 60 || val == null;
+        const conf = Number(confiancas[def.key]) || 0;
+        const temErro = erros.some(e => String(e).toLowerCase().includes(def.key)) || conf < 60 || val == null || val === '';
         const valFormatado = val != null ? (def.format ? def.format(val) : String(val)) : '';
 
         const div = document.createElement('div');
         div.className = 'raya-field ' + (temErro ? 'err' : 'ok');
         div.innerHTML = `
           <label>${def.label} <span style="font-size:10px;opacity:0.6;">(${conf}%)</span></label>
-          <input type="text" value="${valFormatado.replace(/"/g,'&quot;')}" id="raya_field_${def.key}" placeholder="Não encontrado" />
+          <input type="text" value="${String(valFormatado).replace(/"/g,'&quot;')}" id="raya_field_${def.key}" placeholder="Não encontrado" />
           <div class="field-status">${temErro ? '⚠' : '✓'}</div>
           ${temErro ? '<div class="err-msg">' + (conf < 60 ? 'Baixa confiança — verifique' : 'Campo não encontrado') + '</div>' : ''}
         `;
         grid.appendChild(div);
       });
 
-      // Anel de acerto
-      const circumference = 2 * Math.PI * 26;
-      const offset = circumference * (1 - mediaAcerto / 100);
-      document.getElementById('accuracyCircle').style.strokeDashoffset = offset;
-      document.getElementById('accuracyNum').textContent = mediaAcerto + '%';
+      const circle = document.getElementById('accuracyCircle');
+      const num = document.getElementById('accuracyNum');
+      const accWrap = document.getElementById('aiAccuracyWrap');
+      if (accWrap) accWrap.style.display = 'flex';
+      if (circle) {
+        const circumference = 2 * Math.PI * 26;
+        const offset = circumference * (1 - mediaAcerto / 100);
+        circle.style.strokeDashoffset = offset;
+      }
+      if (num) num.textContent = mediaAcerto + '%';
 
       const metaEl = document.getElementById('rayaResultMeta');
-      metaEl.textContent = rayaArquivo.name + ' · ' + new Date().toLocaleTimeString('pt-BR');
+      if (metaEl) metaEl.textContent = rayaArquivo.name + ' · ' + new Date().toLocaleTimeString('pt-BR');
 
-      document.getElementById('rayaEmptyState').style.display = 'none';
-      document.getElementById('rayaResultContent').style.display = 'block';
+      const section = document.getElementById('rayaFieldsSection');
+      if (section) section.style.display = 'block';
     }
 
     function renderTestHistory() {
@@ -1691,6 +1950,59 @@ Se um campo não for encontrado, coloque null. A confiança é de 0 a 100 — se
       setRayaStatus('done', 'Importado com sucesso!', 'O documento foi enviado para o painel de controle com prioridade ' + definirPrioridade(comissao) + '.');
     }
 
+
+    function obterValorCampoRaya(key) {
+      const el = document.getElementById('raya_field_' + key);
+      return el ? el.value : (rayaUltimoResultado?.campos?.[key] ?? '');
+    }
+
+    function exportarExcelRaya() {
+      if (!rayaUltimoResultado || !rayaUltimoResultado.campos) {
+        mostrarToast('Nenhuma análise para exportar');
+        return;
+      }
+
+      const campos = [
+        ['Cliente / Segurado', obterValorCampoRaya('cliente')],
+        ['Tomador', obterValorCampoRaya('tomador')],
+        ['CNPJ do Tomador', obterValorCampoRaya('cnpj_tomador')],
+        ['CEP do Tomador', obterValorCampoRaya('cep_tomador')],
+        ['Endereço do Tomador', obterValorCampoRaya('endereco_tomador')],
+        ['Número do Tomador', obterValorCampoRaya('numero_tomador')],
+        ['Apólice', obterValorCampoRaya('apolice')],
+        ['Seguradora', obterValorCampoRaya('seguradora')],
+        ['Prêmio Total', obterValorCampoRaya('premio')],
+        ['Importância Segurada / LMI', obterValorCampoRaya('importancia_segurada')],
+        ['Vigência Início', obterValorCampoRaya('vigencia_inicio')],
+        ['Vigência Fim', obterValorCampoRaya('vigencia_fim')],
+        ['Modalidade', obterValorCampoRaya('modalidade')],
+        ['Objeto da Garantia', obterValorCampoRaya('objeto_garantia')],
+        ['Processo / Contrato', obterValorCampoRaya('processo_contrato')],
+        ['Arquivo analisado', rayaUltimoResultado.arquivo || ''],
+        ['Acerto Raya', (rayaUltimoResultado.mediaAcerto || 0) + '%'],
+        ['Observações', rayaUltimoResultado.campos._observacoes || ''],
+        ['Erros / Pendências', Array.isArray(rayaUltimoResultado.campos._erros) ? rayaUltimoResultado.campos._erros.join('; ') : '']
+      ];
+
+      const ws = XLSX.utils.aoa_to_sheet([
+        ['Campo', 'Valor'],
+        ...campos
+      ]);
+
+      ws['!cols'] = [{ wch: 28 }, { wch: 70 }];
+
+      const wb = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, 'Dados Raya');
+
+      const nomeBase = (obterValorCampoRaya('apolice') || rayaUltimoResultado.arquivo || 'analise-raya')
+        .toString()
+        .replace(/[^\w\-]+/g, '_')
+        .slice(0, 40);
+
+      XLSX.writeFile(wb, `raya_${nomeBase}.xlsx`);
+      mostrarToast('Excel exportado com sucesso');
+    }
+
     function resetarRaya() {
       rayaArquivo = null;
       rayaUltimoResultado = null;
@@ -1699,8 +2011,7 @@ Se um campo não for encontrado, coloque null. A confiança é de 0 a 100 — se
       document.getElementById('rayaAnalyzeBtn').disabled = false;
       document.getElementById('rayaAnalyzeBtn').style.display = 'block';
       document.getElementById('rayaClearBtn').style.display = 'none';
-      document.getElementById('rayaEmptyState').style.display = 'block';
-      document.getElementById('rayaResultContent').style.display = 'none';
+      const fs = document.getElementById('rayaFieldsSection'); if (fs) fs.style.display = 'none'; const aw = document.getElementById('aiAccuracyWrap'); if (aw) aw.style.display = 'none';
       document.getElementById('rayaProgress').style.display = 'none';
       setRayaStatus('idle', 'Raya · Aguardando documento', 'Envie um PDF de apólice e a Raya vai ler, extrair os campos e sinalizar o que precisar de revisão.');
     }
@@ -1717,18 +2028,17 @@ Se um campo não for encontrado, coloque null. A confiança é de 0 a 100 — se
       }
       mostrarToast('Documento ' + apolice + ' selecionado para análise Raya');
     }
-    function desbloquearRaya() {
-      const campo = document.getElementById('senhaRaya');
-      if (!campo || campo.value !== SENHA_RAYA) {
-        mostrarToast('Senha incorreta');
-        return;
-      }
-      document.getElementById('rayaLock').classList.add('hidden');
-      document.getElementById('rayaContent').classList.remove('hidden');
-      campo.value = '';
-      mostrarToast('Acesso Raya liberado');
-    }
+  
+function desbloquearRaya(){
+  const senha = document.getElementById('senhaRaya').value;
+  if(senha !== SENHA_RAYA){
+    alert('Senha incorreta');
+    return;
+  }
+  document.getElementById('rayaLock').classList.add('hidden');
+  document.getElementById('rayaContent').classList.remove('hidden');
+}
 
-  </script>
+</script>
 </body>
 </html>
