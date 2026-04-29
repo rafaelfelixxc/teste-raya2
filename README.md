@@ -1,58 +1,63 @@
-# Central de Garantias + Raya IA
+[README.md](https://github.com/user-attachments/files/27214887/README.md)
+# 🚀 Central de Garantias
 
-Sistema HTML para leitura e organização de documentos de seguro garantia.
+Sistema web para gestão de documentos de seguro garantia com:
 
-## O que está incluso
+- 📥 Upload de documentos (PDF, PNG, JPG)
+- 🤖 Leitura inteligente com IA (Raya)
+- 📊 Classificação automática por prioridade
+- 📋 Painel Kanban operacional
+- 📈 Dashboard com métricas e erros
+- 📤 Exportação para Excel
 
-- Upload de documentos PDF, PNG e JPG
-- Área de Upload do Analista
-- Painel de Controle protegido por senha
-- Dashboard protegido por senha
-- Raya IA protegida por senha interna
-- Integração com Cloudflare Worker
-- Chamada para Gemini via rota `/api/gemini`
-- Exportação de relatório em XLSX
+---
 
-## Senhas
+## 🔥 Funcionalidades
 
-Senha padrão das áreas restritas:
+### 👨‍💻 Área do Analista
+- Upload simples de documentos
+- Arrastar e soltar arquivos
+- Identificação automática de tomador
 
-```txt
+### 🤖 Raya (IA de Leitura)
+- Leitura de apólices automaticamente
+- Extração de dados
+- Exportação para Excel
+
+### 📊 Painel de Controle
+- Organização por prioridade
+- Scroll interno por pipeline
+- Ações rápidas por card
+
+### 📈 Dashboard
+- Comissão parada
+- Concluídos
+- Erros de leitura
+
+---
+
+## 🔐 Senha padrão
 Operações321
-```
 
-## Como publicar no GitHub Pages
+---
 
-1. Suba os arquivos deste projeto para o repositório.
-2. Renomeie/garanta que o arquivo principal seja `index.html`.
-3. Vá em `Settings > Pages`.
-4. Selecione:
-   - Source: Deploy from branch
-   - Branch: main
-   - Folder: /root
-5. Salve e aguarde o link ficar disponível.
+## 🌐 Deploy (GitHub Pages)
 
-## Como usar com Cloudflare Worker
+1. Settings > Pages
+2. Branch: main
+3. Folder: root
 
-Na aba Raya, cole a URL base do Worker, por exemplo:
+---
 
-```txt
-https://seu-worker.workers.dev
-```
+## ⚙️ Tecnologias
+- HTML
+- CSS (Glass UI)
+- JavaScript
+- PDF.js
+- Tesseract.js
+- XLSX.js
 
-O HTML enviará a leitura para:
+---
 
-```txt
-https://seu-worker.workers.dev/api/gemini
-```
-
-## Importante
-
-A chave do Gemini deve ficar configurada no Cloudflare Worker, não dentro do HTML.
-Isso evita expor sua API Key no código público do GitHub.
-
-## Arquivos
-
-- `index.html`: sistema principal
-- `README.md`: instruções do projeto
-- `.gitignore`: arquivos ignorados
+## 👨‍💻 Autor
+Rafael
