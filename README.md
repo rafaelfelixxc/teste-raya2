@@ -1,63 +1,28 @@
-[README.md](https://github.com/user-attachments/files/27214887/README.md)
-# 🚀 Central de Garantias
+# Raya Cloudflare Worker
 
-Sistema web para gestão de documentos de seguro garantia com:
+Estrutura correta para deploy no Cloudflare:
 
-- 📥 Upload de documentos (PDF, PNG, JPG)
-- 🤖 Leitura inteligente com IA (Raya)
-- 📊 Classificação automática por prioridade
-- 📋 Painel Kanban operacional
-- 📈 Dashboard com métricas e erros
-- 📤 Exportação para Excel
+```txt
+index.html
+worker.js
+wrangler.toml
+README.md
+```
 
----
+## Configuração obrigatória
 
-## 🔥 Funcionalidades
+No Cloudflare, adicione a variável:
 
-### 👨‍💻 Área do Analista
-- Upload simples de documentos
-- Arrastar e soltar arquivos
-- Identificação automática de tomador
+```txt
+GEMINI_API_KEY
+```
 
-### 🤖 Raya (IA de Leitura)
-- Leitura de apólices automaticamente
-- Extração de dados
-- Exportação para Excel
+## Teste
 
-### 📊 Painel de Controle
-- Organização por prioridade
-- Scroll interno por pipeline
-- Ações rápidas por card
+Depois do deploy, acesse:
 
-### 📈 Dashboard
-- Comissão parada
-- Concluídos
-- Erros de leitura
+```txt
+https://SEU-WORKER.workers.dev/
+```
 
----
-
-## 🔐 Senha padrão
-Operações321
-
----
-
-## 🌐 Deploy (GitHub Pages)
-
-1. Settings > Pages
-2. Branch: main
-3. Folder: root
-
----
-
-## ⚙️ Tecnologias
-- HTML
-- CSS (Glass UI)
-- JavaScript
-- PDF.js
-- Tesseract.js
-- XLSX.js
-
----
-
-## 👨‍💻 Autor
-Rafael
+Se aparecer `Worker conectado com sucesso`, está certo.

@@ -1,7 +1,6 @@
 name = "raya2"
-main = "cloudflare/worker.js"
+main = "worker.js"
 compatibility_date = "2026-04-29"
 
-[vars]
-# Não coloque a chave Gemini aqui.
-# Use: npx wrangler secret put GEMINI_API_KEY
+[observability]
+enabled = true
